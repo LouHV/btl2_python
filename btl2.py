@@ -29,3 +29,15 @@ print(df_ban_hang)
 max_soluong_ban = df_ban_hang[df_ban_hang['So Luong'] == df_ban_hang['So Luong'].max()]
 print("\nThông tin sản phẩm bán chạy nhất:")
 print(max_soluong_ban)
+
+# c. Tính tổng doanh thu
+# Thêm cột 'Gia' vào df_ban_hang
+df_ban_hang = df_san_pham[['ID San Pham','Ten', 'Gia']].merge(df_ban_hang1, on='ID San Pham', how='left')
+df_ban_hang.fillna(0, inplace=True)
+
+# Tính doanh thu cho mỗi sản phẩm
+df_ban_hang['Doanh Thu'] = df_ban_hang['So Luong'] * df_ban_hang['Gia']
+
+# Tính tổng doanh thu
+tong_doanh_thu = df_ban_hang['Doanh Thu'].sum()
+print("Tổng doanh thu của cửa hàng là: ", tong_doanh_thu)
