@@ -41,3 +41,7 @@ df_ban_hang['Doanh Thu'] = df_ban_hang['So Luong'] * df_ban_hang['Gia']
 # Tính tổng doanh thu
 tong_doanh_thu = df_ban_hang['Doanh Thu'].sum()
 print("Tổng doanh thu của cửa hàng là: ", tong_doanh_thu)
+
+# d. update lại số lượng sản phẩm sau khi xoá trừ hết số lượng đã bán ở trong các cửa hàng
+df_san_pham ["So Luong"] = df_san_pham ["So Luong"] - df_ban_hang ["So Luong"]
+print(df_san_pham)
